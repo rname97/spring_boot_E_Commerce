@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:employee="http://www.w3.org/1999/xhtml"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.thymeleaf.org">
+<head th:replace="user/_partials/header :: header"></head>
+<body>
+
+<div th:replace="user/_partials/nav :: nav"></div>
+<div class="jumbotron text-center">
+    <h1>APLICATION FUCKING</h1>
+    <p>Welcome Aplication, Fucking</p>
+</div>
+<div class="container">
+    <div class="row" >
+
+        <div class="card col-sm-3"  th:each="barang:${allBarangList}">
+
+
+            <div class="card-body" >
+                <h5 class="card-title">[[${barang.barangName}]]</h5>
+                <p class="card-text">[[${barang.barangDeskripsi}]]</p>
+                <p class="card-text">[[${barang.barangStock}]]</p>
+
+                <a th:href="@{'/client/viewBuyBarang/'+${barang.barangId}}" class="btn btn-warning btn-sm">Edit</a>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+</body>
+</html>

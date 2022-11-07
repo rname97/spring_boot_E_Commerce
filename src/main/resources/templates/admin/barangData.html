@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:employee="http://www.w3.org/1999/xhtml"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.thymeleaf.org">
+<head th:replace="_partials/header :: header"></head>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <div th:replace="admin/_partials/nav :: nav"></div>
+        <div th:replace="admin/_partials/sidebar :: aside"></div>
+
+        <div class="content-wrapper">
+            <section class="content">
+                <div class="container-fluid">
+                    <section class="content-header">
+                        <div class="container-fluid">
+                            <div class="row mb-2">
+                                <div class="col-sm-6">
+                                    <h1>DataTables</h1>
+                                </div>
+                                <div class="col-sm-6">
+                                    <ol class="breadcrumb float-sm-right">
+                                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                        <li class="breadcrumb-item active">DataTables</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div><!-- /.container-fluid -->
+                    </section>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Data Alternatif</h3>
+                                        <div class="card-tools">
+                                            <a th:href="@{/barang/viewAddBarang}">
+                                                <button type="button" class="btn btn-block btn-primary">  <i class="fa fa-user-plus"></i>
+                                                    Tambah Data
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>                                                                     <!-- /.card-header -->
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+
+                                                    <table class="table table-bordered table-striped" id="alternatifTable">
+                                                        <thead>
+                                                        <tr>
+                                                            <th width="5%">#</th>
+                                                            <th>Barang Nama</th>
+                                                            <th>Harga</th>
+                                                            <th>Deskripsi</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+
+
+                                                        <tr th:each="barang:${allBarangList}">
+                                                            <td>#</td>
+                                                            <td>[[${barang.barangName}]]</td>
+                                                            <td>[[${barang.barangHarga}]]</td>
+                                                            <td>[[${barang.barangDeskripsi}]]</td>
+                                                            <td>[[${barang.barangStock}]]</td>
+                                                            <td>
+                                                                <a th:href="@{'/barang/viewEditBarang/'+${barang.barangId}}" class="btn btn-warning btn-sm">Edit</a>
+                                                                <a th:href="@{'/barang/deleteBarang/'+${barang.barangId}}" class="btn btn-danger btn-sm">Delete</a>
+                                                            </td>
+                                                        </tr>
+
+                                                        </tbody>
+                                                    </table>
+
+                                            </div>
+                                            <!-- /.card-body -->
+                                        </div>
+                                        <!-- /.card -->
+                                        <!-- /.card -->
+                                    </div>
+                                    <!-- /.col -->
+                                </div>
+                                <!-- /.row -->
+
+                            </div>
+                        </div>
+                </div>
+                <!-- /.container-fluid -->
+            </section>
+        </div>
+
+        <footer th:replace="admin/_partials/footer :: footer"></footer>
+        <aside class="control-sidebar control-sidebar-dark"></aside>
+    </div>
+<!--    <div th:replace="_partials/js :: script"></div>-->
+    <script  th:replace="admin/_partials/js :: script"></script>
+    <script th:inline="javascript">
+          $(document).ready(function() {
+            $('#alternatifTable').DataTable();
+        });
+    </script>
+</body>
+</html>

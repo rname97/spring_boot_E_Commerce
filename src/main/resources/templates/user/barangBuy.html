@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:employee="http://www.w3.org/1999/xhtml"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.thymeleaf.org">
+<head th:replace="user/_partials/header :: header"></head>
+<body>
+
+<div th:replace="user/_partials/nav :: nav"></div>
+<div class="jumbotron text-center">
+    <h1>APLICATION FUCKING</h1>
+    <p>Welcome Aplication, Fucking</p>
+</div>
+<div class="container">
+    <div class="card-body">
+        <div class="container-fluid">
+
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-12">
+                    <!-- jquery validation -->
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Tambah Alternatif</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <form th:action="@{/client/save}" th:object="${barang}" method="POST">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label>Barang ID</label>
+                                    <input type="text" th:field="*{barangId}"  th:value="${barang.barangId}" class="form-control"  placeholder="Masukan Nama Barang">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Barang Stock</label>
+                                    <input type="text" th:name="barangStock" class="form-control"  placeholder="Masukan Stock Barang">
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                            <div class="card-footer">
+                                <button type="submit" id="add" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!--/.col (left) -->
+                <!-- right column -->
+
+                <!--/.col (right) -->
+            </div>
+            <!-- /.row -->
+        </div>
+    </div>
+</div>
+</body>
+</html>
