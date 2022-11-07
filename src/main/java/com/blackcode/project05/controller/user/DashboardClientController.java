@@ -52,7 +52,6 @@ public class DashboardClientController {
         xx.setBarangDeskripsi(barang1.getBarangDeskripsi());
         xx.setBarangStock(barangx);
 
-
         log.info("data Barangxx :{}",xx);
         barangServiceImpl.saveBarang(xx);
         return "redirect:/client";
